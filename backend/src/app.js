@@ -2,6 +2,7 @@ const express = require('express');
 const { createTable } = require('./db/config');
 const postsRoutes = require('./routes/posts');
 
+
 // Importar los middlewares desde middlewares/index.js
 const { logger, corsMiddleware, jsonParser } = require('./middlewares');
 

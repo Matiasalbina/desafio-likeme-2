@@ -1,13 +1,14 @@
+require('dotenv').config();
 const { Pool } = require('pg');
 
-// Conexión a la base de datos
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'likeme_2',
-    password: 'Esteban23catalan27@',
-    port: 5432,
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_DATABASE,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,
 });
+
 
 // Crear la tabla
 const createTable = async () => {
