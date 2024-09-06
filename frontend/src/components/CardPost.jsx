@@ -2,6 +2,7 @@ import TrashIcon from "./icons/TrashIcon";
 import HeartIcon from "./icons/heart-solid";
 
 export default function CardPost({ post, deletePostById, likePostById }) {
+  console.log(post.img, 'cardPost')
   return (
     <article className="card mb-4">
       <img

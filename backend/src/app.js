@@ -14,11 +14,12 @@ app.use(corsMiddleware);
 app.use(jsonParser);
 
 // Crea la tabla al iniciar el servidor
-createTable();
+
 
 // Rutas
 app.use('/posts', postsRoutes);
 
-app.listen(3000, () => {
+app.listen (3000, async () => {
     console.log('Servidor ejecutándose en http://localhost:3000');
+    await createTable();
 });

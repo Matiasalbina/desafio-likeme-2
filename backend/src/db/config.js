@@ -8,7 +8,7 @@ const pool = new Pool({
     password: process.env.DB_PASSWORD,
     port: process.env.DB_PORT,
 });
-
+console.log(process.env)
 
 // Crear la tabla
 const createTable = async () => {
@@ -31,11 +31,10 @@ const createTable = async () => {
 // Inserta datos en la tabla
 const insertPost = async (titulo, img, descripcion) => {
     try {
-        await pool.query(`
+        return await pool.query(`
             INSERT INTO posts (titulo, img, descripcion)
-            VALUES ($1, $2, $3);
+            VALUES ($1, $2, $3) RETURNING *;
         `, [titulo, img, descripcion]);
-        console.log('Post insertado.');
     } catch (error) {
         console.error('Error al insertar el post:', error);
     }

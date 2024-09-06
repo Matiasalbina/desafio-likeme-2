@@ -12,10 +12,10 @@ const getPosts = async (req, res) => {
 
 // Agregar un nuevo post
 const addPost = async (req, res) => {
-    const { titulo, url, descripcion } = req.body;
+    const { titulo, img, descripcion } = req.body;
     try {
-        await insertPost(titulo, url, descripcion);
-        res.status(201).json({ message: 'Post creado' });
+        const result = await insertPost(titulo, img, descripcion);
+        res.json(result.rows[0]);
     } catch (error) {
         res.status(500).json({ error: 'Error al agregar el post' });
     }
